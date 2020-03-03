@@ -1,5 +1,5 @@
 {% set name = "ipygany" %}
-{% set version = "0.1.4" %}
+{% set version = "0.1.5" %}
 
 package:
   name: {{ name|lower }}
@@ -7,12 +7,12 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: 0457e178f6de013b1a5ab64400bcbcb03708cd8cb4d149a6a36ad5bf8705d645
+  sha256: d00a52a2012be05a1cdf97b97daf4b5f8b81fa8978bb7cb71cf5625e8dbdfcc3
 
 build:
   noarch: python
   number: 0
-  script: "{{ PYTHON }} -m pip install . -vv"
+  script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
@@ -34,7 +34,7 @@ about:
   license: BSD-3-Clause
   license_family: BSD
   license_file: LICENSE.txt
-  summary: '3-D Scientific Visualization in Jupyter'
+  summary: 3-D Scientific Visualization in Jupyter
 
 extra:
   recipe-maintainers:
