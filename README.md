@@ -5,7 +5,7 @@ Home: https://github.com/QuantStack/ipygany
 
 Package license: BSD-3-Clause
 
-Feedstock license: BSD 3-Clause
+Feedstock license: BSD-3-Clause
 
 Summary: 3-D Scientific Visualization in Jupyter
 
