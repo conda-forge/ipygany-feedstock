@@ -1,5 +1,5 @@
 {% set name = "ipygany" %}
-{% set version = "0.3.0" %}
+{% set version = "0.3.1" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: c27026b7bc0a592a8218a8bffd5a0b1a81da393e8d300005a11c066576207149
+  sha256: 9a585e48f3cc14331f57694099035123cc3950a07bf5ba8960c5d3c5fa517c3e
 
 build:
   noarch: python
