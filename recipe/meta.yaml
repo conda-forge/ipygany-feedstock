@@ -1,5 +1,5 @@
 {% set name = "ipygany" %}
-{% set version = "0.4.0" %}
+{% set version = "0.5.0" %}
 
 package:
   name: {{ name|lower }}
@@ -7,7 +7,7 @@ package:
 
 source:
   url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
-  sha256: cd83ba863238164b9a0edf66fab48702c230975400301b3f37624fafa3bf0b92
+  sha256: a665e0875bd9500d4f11082770540d46361bd3cfa85b7814e38403c108918b3d
 
 build:
   noarch: python
@@ -16,18 +16,25 @@ build:
 
 requirements:
   host:
-    - python >=3.5
+    - python >=3.6
     - pip
-    - nodejs
+    - jupyter-packaging
   run:
-    - ipywidgets >=7.5.0
-    - python >=3.5
+    - ipywidgets >=7.6.0
+    - python >=3.6
     - traittypes
     - numpy
 
 test:
   imports:
     - ipygany
+  commands:
+    - test -f ${PREFIX}/share/jupyter/nbextensions/ipygany/extension.js                             # [unix]
+    - test -f ${PREFIX}/share/jupyter/nbextensions/ipygany/index.js                                 # [unix]
+    - test -f ${PREFIX}/share/jupyter/labextensions/ipygany/package.json                            # [unix]
+    - if not exist %PREFIX%\\share\\jupyter\\nbextensions\\ipygany\\extension.js (exit 1)           # [win]
+    - if not exist %PREFIX%\\share\\jupyter\\nbextensions\\ipygany\\index.js (exit 1)               # [win]
+    - if not exist %PREFIX%\\share\\jupyter\\labextensions\\ipygany\\package.json (exit 1)          # [win]
 
 about:
   home: https://github.com/QuantStack/ipygany
