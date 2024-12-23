@@ -6,26 +6,28 @@ package:
   version: {{ version }}
 
 source:
-  url: https://pypi.io/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
+  url: https://pypi.org/packages/source/{{ name[0] }}/{{ name }}/{{ name }}-{{ version }}.tar.gz
   sha256: a665e0875bd9500d4f11082770540d46361bd3cfa85b7814e38403c108918b3d
 
 build:
   noarch: python
-  number: 0
+  number: 1
   script: {{ PYTHON }} -m pip install . -vv
 
 requirements:
   host:
-    - python >=3.6
+    - python {{ python_min }}
     - pip
     - jupyter-packaging
   run:
     - ipywidgets >=7.6.0
-    - python >=3.6
+    - python >={{ python_min }}
     - traittypes
     - numpy
 
 test:
+  requires:
+    - python {{ python_min }}
   imports:
     - ipygany
   commands:
